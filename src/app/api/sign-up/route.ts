@@ -34,14 +34,14 @@ export async function POST(request: Request) {
                 await existingUserByEmail.save()
             }
         }else{
-           const hashPassword =  await bcrypt.hash(password,10)
+           const hashedPassword =  await bcrypt.hash(password,10)
            const expiryDate = new Date()
            expiryDate.setHours(expiryDate.getHours() +1)
 
           const newUser = new UserModal({
                username,
                email,
-               password:hashPassword,
+               password:hashedPassword,
                verifyCode,
                isVerified:false,
                verifyCodeExpiry:expiryDate,
