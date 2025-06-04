@@ -33,7 +33,7 @@ export async function GET(request:Request) {
     )
         }
         const {username} = result.data
-        const existingVerfiedUser = await UserModal.findOne({username,isVerified:true})
+        const existingVerfiedUser = await UserModal.findOne({username, isVerified:true})
         if(existingVerfiedUser){
             return Response.json(
             {
