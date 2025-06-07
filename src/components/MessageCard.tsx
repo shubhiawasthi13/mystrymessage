@@ -23,22 +23,28 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Message } from '@/model/User'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios';
 import { ApiResponse } from '@/types/ApiResponse'
 
 type MessageCardProps = {
-    message: Message;
-    onMessageDelete: (messageId: any) => void
-}
+  message: Message;
+  onMessageDelete: (messageId: string) => void;
+};
 
 
 const MessageCard = ({message, onMessageDelete}:MessageCardProps) => {
-    const handleDeleteConfirm  = async() => {
-     const response = await axios.delete<ApiResponse>(`/api/delete-message/${message._id}`)
+    const handleDeleteConfirm = async () => {
+    try {
+      const response = await axios.delete<ApiResponse>(
+        `/api/delete-message/${message._id}`
+      );
     alert(response.data.message)
-    onMessageDelete(message._id)
+      // onMessageDelete(message._id); // issue here
 
-
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>;
+      alert( axiosError.response?.data.message ?? 'Failed to delete message')
+    } 
 }
 
   return (
@@ -64,7 +70,7 @@ const MessageCard = ({message, onMessageDelete}:MessageCardProps) => {
       </AlertDialogContent>
     </AlertDialog>
 
-    <CardDescription>Card Description</CardDescription>
+    <CardDescription></CardDescription>
   </CardHeader>
   <CardContent>
   </CardContent>
