@@ -87,7 +87,7 @@ const onSubmit = async(data: z.infer<typeof signUpSchema>) => {
     
       <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
   <div className="text-center mb-6">
-    <h1 className="text-2xl font-bold text-gray-800">Join Mystry Message</h1>
+    <h1 className="text-2xl font-bold text-purple-800">Join Mystry Message</h1>
     <p className="text-sm text-gray-500">Signup to start your anonymous adventure</p>
   </div>
 
