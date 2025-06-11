@@ -1,4 +1,6 @@
 import React from 'react'
+import dayjs from 'dayjs';
+
 import {
   Card,
   CardAction,
@@ -77,7 +79,7 @@ export function MessageCard({ message, onMessageDelete }: MessageCardProps) {
           </AlertDialog>
         </div>
         <div className="text-sm">
-          {/* {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')} */}
+          {dayjs(message.createdAt).format('MMM D, YYYY h:mm A')}
         </div>
       </CardHeader>
       <CardContent></CardContent>
