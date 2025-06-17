@@ -171,6 +171,6 @@ export default UserModal
 
 
 
-// DATABASE_URI= "mongodb+srv://awasthishubhi147:ZnsTJdAdbzDptyvp@cluster0.yacjkhk.mongodb.net/"
+// DATABASE_URI= "ZnsTJdAdbzDptyvp/"
 // RESEND_API_KEY="re_F2NVFioh_6v5fBfLWW84mdTipxMNWUaRd"
 // NEXTAUTH_SECERET="hdkdjujhsjsojsjojho"
